@@ -1,6 +1,6 @@
 # Feature_Critic
-Demo code for 'Feature-Critic Networks for Heterogeneous Domain Generalisation'
-. The paper is located at https://arxiv.org/abs/1901.11448 and will appear in the forthcoming ICML 2019.
+Demo code for 'Feature-Critic Networks for Heterogeneous Domain Generalisation', including codes for heterogeneous DG (VD) and homogeneous DG (PACS).
+This paper is located at https://arxiv.org/abs/1901.11448 and will appear in the forthcoming ICML 2019.
 
 >  Yiying Li, Yongxin Yang, Wei Zhou, Timothy M. Hospedales. Feature-Critic Networks for Heterogeneous Domain Generalisation[C]. ICML 2019.
 
@@ -18,11 +18,16 @@ If you find Feature_Critic useful in your research, please consider citing:
     }
  ```
  
- # Download datasets and models
+ ## Download datasets and models
  
- ## Preparation
- We provide two ways to download datasets and models on our MEGA network disk: (i) download directly from the link and put them under the corresponding project dir; (ii) install the network disk command line tool first and then use our script for downloading.
+ ### Preparation
+We provide two ways to download datasets and trained models on our MEGA network disk:
+(i) Download directly from the link and put them under the corresponding project dir:
+PACS dataset is on  https://mega.nz/#F!jBllFAaI!gOXRx97YHx-zorH5wvS6uw. pacs_data and pacs_label can be put under ```<home_dir>/data/PACS/```.
+All trained models of VD and PACS are on  https://mega.nz/#F!rRkgzawL!qoGX4bT3sif88Ho1Ke8j1Q, and they can be put under `<home_dir>/model_output/`.  ＊＊The models under the ```<Feature_Critic>``` folder are the Feature_Critic trained models that can be utilized directly.＊＊
+VD dataset download should follow the instructions below.
 
+(ii) Install the network disk command line tool first and then use our script for downloading.
 ```
 (1) Download the soure code of MEGA tool.
 git clone https://github.com/meganz/MEGAcmd.git
@@ -38,46 +43,54 @@ sudo make install
 sudo ldconfig
 ```
 
-### Dataset
-The example code mainly reproduces the experimental results of Heterogeneous DG experiments with VD,
-so it is necessary to download the corresponding data set from the official website(https://www.robots.ox.ac.uk/%7Evgg/decathlon/).
-please download the following files:
+### Download VD Dataset
+From the official website(https://www.robots.ox.ac.uk/%7Evgg/decathlon/), please download the following files:
 ```
-(1) Annotations and code. The devkit [22MB] contains the annotation files as well as example MATLAB code for evaluation (using this code is not a requirement).
-(2) Images. The following archives contain the preprocessed images for each dataset:
+(1) Annotations and code. The devkit [22MB] contains the annotation files as well as example MATLAB code for evaluation. You can put under `<home_dir>/data/VD/`.
+(2) Images. The following archives contain the preprocessed images for each dataset, and they can be put under `<home_dir>/data/`:
             Preprocessed images [406MB]. Images from all datasets except ImageNet ILSVRC.
             Preprocessed ILSVRC images [6.1GB]. In order to download the data, the attendees are required to register an ImageNet (http://image-net.org/signup) account first. Images for the ImageNet ILSVRC dataset (this is shipped separately due to copyright issues).
 ```
 
-### Installation
+### Download PACS Dataset and trained models
+Make sure to run script to download the PACS dataset and trained models from the MEGA netowrk disk.
+ ```
+ bash get_model_dataset.sh
+ ```
+
+## Installation
 
 Install Anaconda:
 ```
 curl -o /tmp/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 bash /tmp/miniconda.sh
-conda create -n FC_VD python=2.7.12
-source activate FC_VD
+conda create -n FC python=2.7.12
+source activate FC
 ```
 Install necessary Python packages:
 ```
 pip install torchvision pycocotools torch
 ```
 
-### Running
-First go to the Feature_Critic_VD code folder:
+## Running
+
+### Experiments on VD
+1. Baseline(AGG)
+Launch the entry script of baseline method:
 ```
-cd <path_to_Feature_Critic_VD_folder>
+python main_baseline.py --dataset=VD
 ```
-Then launch the entry script of baseline method:
-```
-python main_baseline.py
-```
+Parameters (e.g., learning_rate, batch_size) and flags can be found and tuned in `main_baseline.py`. Turn on the `is_train` to train the baseline model.
 Experiment data is saved in `<home_dir>/logs`.
 
-Run the Feature_Critic_VD:
+2. Feature_Critic
+Load the VD baseline model under the ....
+
+Launch the entry script of Feature_Critic method, parameters and flags can also be tuned by yourself:
 ```
-python main_Feature_Critic.py
+python main_Feature_Critic.py --dataset=VD
 ```
 
- ### Your own data
- Please tune the folder <VD> for your own data.
+### Experiments on PACS
+
+
