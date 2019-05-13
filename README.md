@@ -22,9 +22,11 @@ If you find Feature_Critic useful in your research, please consider citing:
  
  ### Preparation
 We provide two ways to download datasets and trained models on our MEGA network disk:
+
 (i) Download directly from the link and put them under the corresponding project dir:
 PACS dataset is on  https://mega.nz/#F!jBllFAaI!gOXRx97YHx-zorH5wvS6uw. pacs_data and pacs_label can be put under ```<home_dir>/data/PACS/```.
-All trained models of VD and PACS are on  https://mega.nz/#F!rRkgzawL!qoGX4bT3sif88Ho1Ke8j1Q, and they can be put under `<home_dir>/model_output/`.  ＊＊The models under the ```<Feature_Critic>``` folder are the Feature_Critic trained models that can be utilized directly.＊＊
+
+All trained models of VD and PACS are on  https://mega.nz/#F!rRkgzawL!qoGX4bT3sif88Ho1Ke8j1Q, and they can be put under `<home_dir>/model_output/`. **The models under the ```<Feature_Critic>``` folder are the Feature_Critic trained models that can be utilized directly.**
 VD dataset download should follow the instructions below.
 
 (ii) Install the network disk command line tool first and then use our script for downloading.
@@ -84,7 +86,7 @@ Parameters (e.g., learning_rate, batch_size) and flags can be found and tuned in
 Experiment data is saved in `<home_dir>/logs`.
 
 2. Feature_Critic
-Load the VD baseline model under the ....
+Load the VD baseline model to `<home_dir>/model_output/VD/baseline/`
 
 Launch the entry script of Feature_Critic method, parameters and flags can also be tuned by yourself:
 ```
