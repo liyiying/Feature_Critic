@@ -100,7 +100,7 @@ Experiment data is saved in `<home_dir>/logs/VD/Feature_Critic/`. You can achiev
 ### Experiments on PACS
 Experiments need to be performed four times in the leave-one-domain-out way. Take the "leave-A-domain-out" as the example, and you can change the target domain (`unseen_index`) as in the main file.
 
-For baseline, you can achieve 63.3%, 66.3%, 88.6%, 56.5% when setting A, C, P, S as the target domain，respectively, and get the average 68.7%.
+For baseline, you can achieve 63.3%, 66.3%, 88.6%, 56.5% when setting A, C, P, S as the target domain，respectively, and get the average 68.7%. (cf Table 5 in the paper)
 
 For Feature_Critic, you can achieve 64.4%, 68.6%, 90.1%, 58.4% when setting A, C, P, S as the target domain，respectively, and get the average 70.4%. (cf Table 5 in the paper)
 
