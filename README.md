@@ -4,10 +4,10 @@ This paper is located at https://arxiv.org/abs/1901.11448 and will appear in the
 
 >  Yiying Li, Yongxin Yang, Wei Zhou, Timothy M. Hospedales. Feature-Critic Networks for Heterogeneous Domain Generalisation[C]. ICML 2019.
 
-# Introduction
+## Introduction
 Feature_Critic aims to address the domain generalisation problem with a particular focus on the heterogeneous case, by meta-learning a regulariser to help train a feature extractor to be domain invariant. The resulting feature extractor outperforms alternatives for general purpose use as a fixed downstream image encoding. Evaluated on Visual Decathlon -- the largest DG evaluation thus far -- this suggests that Feature_Critic trained feature extractors could be of wide potential value in diverse applications. Furthermore Feature_Critic also performs favourably compared to state-of-the-art in the homogeneous DG setting, such as on PACS dataset.
 
-# Citing Feature_Critic
+## Citing Feature_Critic
 If you find Feature_Critic useful in your research, please consider citing:
  ```
  @inproceedings{Li2019ICML,
