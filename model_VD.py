@@ -394,7 +394,7 @@ class Model_Feature_Critic_VD(ModelBaseline_VD):
 
     def train(self, flags):
         write_log(flags, self.flags_log)
-        self.pre_train()
+        self.pre_train(flags)
         self.reinit_network_P(flags)
         time_start = datetime.datetime.now()
         self.new_writer = SummaryWriter(log_dir='logs/FC_loss_VD')
@@ -587,8 +587,8 @@ class Model_Feature_Critic_VD(ModelBaseline_VD):
                 torch.cuda.empty_cache()
         self.new_writer.close()
 
-    def pre_train(self):
-        model_path = os.path.join('model_output/VD/baseline/', 'best_model.tar')
+    def pre_train(self, flags):
+        model_path = os.path.join(flags.load_path, 'best_model.tar')
         if os.path.exists(model_path):
             self.load_state_dict(state_dict=model_path)
         self.param_optim_theta = freeze_layer(self.feature_extractor_network)
