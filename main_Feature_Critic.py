@@ -48,6 +48,8 @@ def main():
                                       help='iteration of test domains')
         train_arg_parser.add_argument("--logs", type=str, default='logs/VD/Feature_Critic/',
                                       help='logs folder to write log')
+        train_arg_parser.add_argument("--load_path", type=str, default='model_output/VD/baseline/',
+                                      help='folder for loading baseline model')
         train_arg_parser.add_argument("--model_path", type=str, default='model_output/VD/Feature_Critic/',
                                       help='folder for saving model')
         train_arg_parser.add_argument("--debug", type=bool, default=True,
