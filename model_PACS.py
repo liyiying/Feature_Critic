@@ -301,7 +301,7 @@ class Model_Feature_Critic_PACS(ModelBaseline_PACS):
     def train(self, flags):
 
         write_log(flags, self.flags_log)
-        self.pre_train()
+        self.pre_train(flags)
         self.reinit_network_P(flags)
         time_start = datetime.datetime.now()
 
@@ -438,8 +438,8 @@ class Model_Feature_Critic_PACS(ModelBaseline_PACS):
                 self.validate_workflow(self.batImageGenVals, flags, _)
                 torch.cuda.empty_cache()
 
-    def pre_train(self):
-        model_path = os.path.join('model_output/PACS/baseline/', 'best_model.tar')
+    def pre_train(self, flags):
+        model_path = os.path.join(flags.load_path, 'best_model.tar')
         if os.path.exists(model_path):
             self.load_state_dict(state_dict=model_path)
 
