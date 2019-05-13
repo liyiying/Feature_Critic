@@ -29,7 +29,7 @@ PACS dataset is on  https://mega.nz/#F!jBllFAaI!gOXRx97YHx-zorH5wvS6uw. pacs_dat
 
 All trained models of VD and PACS are on  https://mega.nz/#F!rRkgzawL!qoGX4bT3sif88Ho1Ke8j1Q, and they can be put under `<home_dir>/model_output/`. **The models under the ```<Feature_Critic>``` folder are the Feature_Critic trained models that can be utilized directly.**
 
-VD dataset download should follow the instructions below.
+VD dataset download should follow the Download VD Dataset instructions below.
 
 (ii) Install the network disk command line tool first and then use our script for downloading.
 ```
@@ -76,7 +76,7 @@ Install necessary Python packages:
 pip install torchvision pycocotools torch
 ```
 
-## Running
+## Running and Results
 
 ### Experiments on VD
 1. Baseline(AGG)
@@ -84,8 +84,8 @@ Launch the entry script of baseline method:
 ```
 python main_baseline.py --dataset=VD
 ```
-Parameters (e.g., learning_rate, batch_size) and flags can be found and tuned in `main_baseline.py`. Turn on the `is_train` to train the baseline model.
-Experiment data is saved in `<home_dir>/logs`.
+Parameters (e.g., learning_rate, batch_size...) and flags can be found and tuned in `main_baseline.py`. Turn on the `is_train` to train the baseline model.
+Experiment data is saved in `<home_dir>/logs/VD/baseline/`. You can achieve 19.56%, 36.49%, 58.04%, 46.98% on the four target domains (Aircraft, D.Textures, VGG-Flowers, UCF101) with the average 40.27%. (cf Table 1 in the paper)
 
 2. Feature_Critic
 Load the VD baseline model to `<home_dir>/model_output/VD/baseline/`
@@ -94,7 +94,31 @@ Launch the entry script of Feature_Critic method, parameters and flags can also 
 ```
 python main_Feature_Critic.py --dataset=VD
 ```
+Experiment data is saved in `<home_dir>/logs/VD/Feature_Critic/`. You can achieve 20.94%, 38.88%, 58.53%, 50.82% on the four target domains (Aircraft, D.Textures, VGG-Flowers, UCF101) with the average 42.29%. (cf Table 1 in the paper)
+
 
 ### Experiments on PACS
+Experiments need to be performed four times in the leave-one-domain-out way. Take the "leave-A-domain-out" as the example, and you can change the target domain (`unseen_index`) as in the main file.
+
+For baseline, you can achieve 63.3%, 66.3%, 88.6%, 56.5% when setting A, C, P, S as the target domain，respectively, and get the average 68.7%.
+
+For Feature_Critic, you can achieve 64.4%, 68.6%, 90.1%, 58.4% when setting A, C, P, S as the target domain，respectively, and get the average 70.4%. (cf Table 5 in the paper)
+
+1. Baseline(AGG)
+Launch the entry script of baseline method:
+```
+python main_baseline.py --dataset=PACS
+```
+Parameters (e.g., learning_rate, batch_size...) and flags can be found and tuned in `main_baseline.py`. Turn on the `is_train` to train the baseline model.
+Experiment data is saved in `<home_dir>/logs/PACS/baseline/A/`. 
+
+2. Feature_Critic
+Load the PACS baseline model (A) to `<home_dir>/model_output/PACS/baseline/A/`
+
+Launch the entry script of Feature_Critic method, parameters and flags can also be tuned by yourself:
+```
+python main_Feature_Critic.py --dataset=PACS
+```
+Experiment data is saved in `<home_dir>/logs/PACS/Feature_Critic/A/`.
 
 
