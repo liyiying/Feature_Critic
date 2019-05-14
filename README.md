@@ -27,7 +27,7 @@ We provide two ways to download datasets and trained models on our MEGA network 
 
 PACS dataset is on  https://mega.nz/#F!jBllFAaI!gOXRx97YHx-zorH5wvS6uw. pacs_data and pacs_label can be put under ```<home_dir>/data/PACS/```.
 
-All trained models of VD and PACS are on  https://mega.nz/#F!rRkgzawL!qoGX4bT3sif88Ho1Ke8j1Q, and they can be put under `<home_dir>/model_output/`. **The models under the ```<Feature_Critic>``` folder are the Feature_Critic trained models that can be utilized directly.**
+All trained models of VD and PACS are on  https://mega.nz/#F!rRkgzawL!qoGX4bT3sif88Ho1Ke8j1Q, and they can be put under `<home_dir>/model_output/`. **If you want to use the trained Feature_Critic for encoding to extract your features, you can download and use the models under ```<Feature_Critic>``` folder.**
 
 VD dataset download should follow the Download VD Dataset instructions below.
 
@@ -57,7 +57,7 @@ From the official website(https://www.robots.ox.ac.uk/%7Evgg/decathlon/), please
 ```
 
 ### Download PACS Dataset and trained models
-Make sure to run script to download the PACS dataset and trained models from the MEGA netowrk disk.
+Make sure to run script to download the PACS dataset and trained models from the MEGA network disk.
  ```
  bash get_model_dataset.sh
  ```
