@@ -28,7 +28,7 @@ We provide two ways to download datasets and trained models on our MEGA network 
 PACS dataset is on  https://mega.nz/#F!jBllFAaI!gOXRx97YHx-zorH5wvS6uw. pacs_data and pacs_label can be put under ```<home_dir>/data/PACS/```.
 
 
-All trained models of VD and PACS are on  https://mega.nz/#F!rRkgzawL!qoGX4bT3sif88Ho1Ke8j1Q, and they can be put under `<home_dir>/model_output/`. **If you want to use the trained Feature_Critic for encoding to extract your features, you can download and use the torch models under ```<Feature_Critic>``` folder.**
+All trained models of VD and PACS are on  https://mega.nz/#F!rRkgzawL!qoGX4bT3sif88Ho1Ke8j1Q, and they can be put under `<home_dir>/model_output/`. **If you want to use the trained Feature_Critic for encoding to extract your features, you can download and use the torch models that under the ```<Feature_Critic>``` folder.**
 
 VD dataset download should follow the Download VD Dataset instructions below.
 
